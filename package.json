@@ -1,0 +1,78 @@
+{
+  "name": "openchamber-agent-groceries",
+  "version": "1.13.1",
+  "private": true,
+  "license": "MIT",
+  "author": "Andrey (https://github.com/esykai)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/esykai/openchamber-agent-groceries.git"
+  },
+  "homepage": "https://github.com/esykai/openchamber-agent-groceries#readme",
+  "bugs": {
+    "url": "https://github.com/esykai/openchamber-agent-groceries/issues"
+  },
+  "keywords": [
+    "openchamber",
+    "extension",
+    "opencode",
+    "tokens",
+    "usage",
+    "gif"
+  ],
+  "description": "Token usage as groceries for OpenChamber: daily, weekly and monthly spend in packs of buckwheat, with PNG and animated GIF cards.",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "openchamber": {
+    "apiVersion": 1,
+    "engines": {
+      "openchamber": ">=2.5.0"
+    },
+    "contributes": {
+      "panel": {
+        "id": "x5-club",
+        "name": "Agent Groceries",
+        "icon": "icon.svg",
+        "entry": "panel/index.html"
+      },
+      "statusSection": {
+        "entry": "status/index.html",
+        "title": "Agent Groceries",
+        "height": 220,
+        "defaultExpanded": true,
+        "requiresProject": false
+      },
+      "service": {
+        "entry": "service/main.js",
+        "runtime": "host",
+        "permissions": {
+          "exec": [
+            "powershell.exe",
+            "pwsh.exe",
+            "osascript",
+            "wl-copy",
+            "xclip",
+            "sh"
+          ]
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "esbuild dev/check.ts --bundle --platform=node --format=esm --outfile=dev/check.mjs --log-level=warning && node dev/check.mjs",
+    "test": "node --test test/service.test.mjs",
+    "typecheck": "tsc --noEmit",
+    "start": "node scripts/build.mjs && node dev/serve.mjs"
+  },
+  "dependencies": {
+    "@openchamber/sdk": "2.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.9.0"
+  }
+}

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Х5 Клуб — превью</title>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        padding: 28px;
+        background: #ececec;
+        color: #171717;
+        font: 13px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif;
+      }
+      h1 { margin: 0 0 4px; font-size: 20px; letter-spacing: -.02em; }
+      .lede { margin: 0 0 22px; color: #666; font-size: 12px; }
+      .lede code { font-family: ui-monospace, Consolas, monospace; }
+      #canvas { display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-start; }
+      .column { width: 420px; }
+      .column[data-theme="dark"] { color: #f5f5f5; }
+      .column-label {
+        margin-bottom: 8px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        opacity: .55;
+      }
+      .panel-chrome {
+        border: 1px solid #d9d9d9;
+        border-radius: 12px;
+        background: #f7f7f7;
+        overflow: hidden;
+      }
+      .column[data-theme="dark"] .panel-chrome { border-color: #383838; background: #202020; }
+      .panel-head {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 10px;
+        border-bottom: 1px solid #e3e3e3;
+        font-size: 11px;
+      }
+      .column[data-theme="dark"] .panel-head { border-color: #333; }
+      .panel-title { font-weight: 600; }
+      .panel-dots { margin-left: auto; opacity: .4; letter-spacing: .1em; }
+      .controls { display: flex; gap: 6px; }
+      .ctl {
+        padding: 3px 7px;
+        border: 1px solid #d9d9d9;
+        border-radius: 7px;
+        background: #fff;
+        color: #171717;
+        font: inherit;
+        font-size: 10.5px;
+      }
+      .column[data-theme="dark"] .ctl { border-color: #3d3d3d; background: #2a2a2a; color: #f5f5f5; }
+      .frame { display: block; width: 100%; border: 0; background: transparent; }
+      .frame-status { border-top: 1px solid #e3e3e3; padding: 0; }
+      .column[data-theme="dark"] .frame-status { border-color: #333; }
+      .frame-panel {
+        border: 1px solid #d9d9d9;
+        border-radius: 12px;
+        background: #f7f7f7;
+        padding: 10px;
+      }
+      .column[data-theme="dark"] .frame-panel { border-color: #383838; background: #202020; }
+      .bare-card { width: 340px; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+      .poster { padding: 24px; }
+      .poster h1, .poster .lede, .poster .column-label { display: none; }
+      .poster #canvas { gap: 20px; align-items: flex-start; }
+      #toasts { position: fixed; right: 18px; bottom: 18px; display: flex; flex-direction: column; gap: 8px; z-index: 10; }
+      .toast {
+        padding: 8px 12px;
+        border-radius: 9px;
+        background: #171717;
+        color: #fff;
+        font-size: 12px;
+        box-shadow: 0 8px 24px -12px rgba(0,0,0,.6);
+        max-width: 380px;
+      }
+      .toast[data-tone="success"] { background: #2f7d32; }
+      .toast[data-tone="error"] { background: #b3261e; }
+      #composer {
+        margin-top: 22px;
+        max-width: 820px;
+        padding: 12px 14px;
+        border: 1px dashed #b9b9b9;
+        border-radius: 10px;
+        background: #fff;
+        color: #171717;
+        font-family: ui-monospace, Consolas, monospace;
+        font-size: 11px;
+        white-space: pre-wrap;
+      }
+      #log {
+        margin-top: 18px;
+        padding: 8px;
+        border-radius: 8px;
+        background: #1f1f1f;
+        color: #9fe08a;
+        font-family: ui-monospace, Consolas, monospace;
+        font-size: 10px;
+        max-height: 180px;
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Сколько съел мой Агент?</h1>
+    <p class="lede">
+      Харнесс для разработки: страницы расширения в iframe, мост SDK подменён.
+      <code>?surface=status|panel&amp;theme=light|dark&amp;tokens=1275853</code>
+    </p>
+    <div id="canvas"></div>
+    <div id="composer" hidden></div>
+    <div id="log" hidden></div>
+    <div id="toasts"></div>
+    <script src="preview.js"></script>
+  </body>
+</html>

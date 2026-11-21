@@ -1,0 +1,7 @@
+node_modules/
+dev/check.mjs
+dev/poster-*
+*.zip
+.openchamber/
+.DS_Store
+Thumbs.db

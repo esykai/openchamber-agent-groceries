@@ -1,0 +1,14 @@
+* text=auto eol=lf
+
+panel/main.js linguist-generated=true
+status/main.js linguist-generated=true
+service/main.js linguist-generated=true
+dev/preview.js linguist-generated=true
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
